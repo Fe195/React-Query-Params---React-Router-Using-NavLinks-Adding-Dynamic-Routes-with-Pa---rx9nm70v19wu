@@ -1,15 +1,17 @@
 import React from 'react'
-import { useSearchParams } from 'react-router-dom';
 import '../styles/App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
 
-const App = () => {
-  //Write your code here
-  const [queryParams] = useSearchParams();
-  const name = queryParams.get('name');
-  const id = queryParams.get('id');
-  const designation = queryParams.get('designation');
-
-  return <div className='details'>Employee {id} named {name} works as {designation}</div>
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
-
 export default App;
